@@ -1,0 +1,45 @@
+package com.example.demo.DTO;
+
+import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+import jakarta.annotation.Generated;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+import lombok.Setter;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name = "livrosDTO")
+
+public class LivrosDTO implements Serializable{
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String titulo;
+    private String autor;
+    private String genero;
+    private LocalDateTime insert;
+    private LocalDate publicacao;
+
+    public LivrosDTO(LivrosDTO livros) {
+        this.titulo = livros.getTitulo();
+        this.autor = livros.getAutor();
+        this.genero = livros.getGenero();
+        this.insert = livros.getInsert();
+        this.publicacao = livros.getPublicacao();
+    }
+}
