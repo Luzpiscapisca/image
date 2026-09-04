@@ -9,4 +9,4 @@ class ImageService {
      }
 }
  
-export const useImage = () => new ImageService();
+export const imageService = () => new ImageService();
