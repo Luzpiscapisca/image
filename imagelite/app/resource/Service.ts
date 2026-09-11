@@ -1,12 +1,12 @@
 import { Image } from "./Image";
 
-class ImageService {
-    baseURL: string = ''
-     async buscar(): Promise<Image[]> {
-        const resposne = await fetch(this.baseURL);
-        return await  resposne.json();
-    
-     }
+export class ImageService {
+  baseURL : string = 'http://localhost:8080/images';
+
+  async buscar(): Promise<Image[]>{
+    const response = await fetch(this.baseURL);
+    return await response.json();
+  }
 }
- 
-export const imageService = () => new ImageService();
+// React Hook
+  export const useImageService = ()  => new ImageService();
