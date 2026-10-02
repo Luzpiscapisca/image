@@ -16,6 +16,7 @@ export const PrimeiroComponente =({mensagem, mensagemBotao}: PrimeiroComponenteP
   }
 
 
+
     return(
     <div> 
       <h1>Primeiro Componente</h1>

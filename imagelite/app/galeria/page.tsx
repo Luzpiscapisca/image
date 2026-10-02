@@ -1,22 +1,22 @@
-'use client';
-import { Template, ImageCard } from '../components';
-  import { Image } from '../resource/Image';
-  import { ImageService, useImageService } from '../resource/Service';
-  import { useState } from 'react'
+'use client'; 
 
-export default function Galeria() {
-
-
-  const useService = useImageService();
-  const [images, setImage] = useState<Image[]>([])
-  const[query, setQuery] = useState<string>('')
-  const[extension, setExtension] = useState<string>('')
-
-   async function searchImages(){
-      const result = await useService.buscar(query, extension);
-      setImage(result);
-      console.log(query, extension)
-    }
+import { Template, ImageCard } from '../components'; 
+import { Image } from '../resource/Image'; 
+import { ImageService, useImageService } from '../resource/Service'; 
+import { useState } from 'react'; 
+ 
+export default function Galeria() { 
+ 
+  const useService = useImageService(); 
+  const [images, setImage] = useState<Image[]>([]);  
+  const [query, setQuery] = useState<string>(''); 
+  const [extension, setExtension] = useState<string>(''); 
+ 
+  async function searchImages() { 
+    const result = await useService.buscar(query, extension); 
+    setImage(result); 
+    console.log(query, extension); 
+  } 
     /*renderizando a imagem na tela*/
   function renderImageCard(image: Image ) {
     return (
